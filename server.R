@@ -9,7 +9,8 @@ svm <- e1071::svm
 nb <- e1071::naiveBayes
 lda <- MASS::lda
 
-wine <- readRDS("data/wine.rds")
+wine <- rename_all(readRDS("data/wine.rds"), tolower)
+
 wine$cultivar <- as.factor(wine$cultivar) 
 
 shinyServer(function(input, output) {
